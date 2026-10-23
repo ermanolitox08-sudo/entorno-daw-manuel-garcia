@@ -1,7 +1,7 @@
-![alt text](image.png)# Documentación de mi entorno de desarrollo · Práctica 2
+# Documentación de mi entorno de desarrollo · Práctica 2
 
-**Nombre y apellidos:**
-**URL de mi repositorio:**
+**Nombre y apellidos:** Manuel García
+**URL de mi repositorio:** https://github.com/ermanolitox08-sudo/entorno-daw-manuel-garcia
 
 > Rellena cada apartado a medida que avanzas. Donde pone «pega aquí», copia el texto
 > de la terminal (no hace falta captura). Escribe con tus palabras: no se valora la longitud,
@@ -63,14 +63,16 @@ v24.22.1
 
 ## 2. Módulos y extensiones (CE 2.b)
 
+
 | Extensión | ¿Para qué sirve? | ¿Qué cambió al instalarla? | ¿La mantengo? ¿Por qué? |
-|-----------|------------------|----------------------------|-------------------------|
-| Extension Pack for Java |   |   |   |
-| Code Spell Checker      |   |   |   |
+|---|---|---|---|
+| Extension Pack for Java | Sirve para programar, ejecutar y depurar programas Java. | Aparecieron las opciones Run y Debug y pude ejecutar la factura. | Sí, porque la necesito para trabajar con Java. |
+| Code Spell Checker | Sirve para detectar posibles faltas de ortografía en el código. | Empezó a subrayar palabras españolas que no reconocía. | No, porque marcaba como incorrectas palabras que estaban bien escritas en español. |
+  
 
 ¿Qué diferencia hay entre instalar una extensión **solo desde el panel** y añadirla **también a `devcontainer.json`**?
 
-> 
+> Instalar una extensión desde el panel solo la añade al entorno actual. Si también la añadimos a devcontainer.json, queda guardada en la configuración del proyecto y se instalará automáticamente al reconstruir el entorno.
 
 ---
 
@@ -85,9 +87,9 @@ v24.22.1
 }
 ```
 
-- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? He configurado un atajo de teclado para reconstruir el contenedor de Codespaces, de manera que puedo hacerlo más rápido sin buscar la opción en los menús.
+- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? He configurado un atajo de teclado para reconstruir el contenedor de Codespaces, de manera que puedo hacerlo más rápido sin buscar la opción en los menús. Control + Option + Shift + R
 - **Snippet** (paso 12). ¿Qué escribes y qué aparece? Escribo cabecera en Prueba.java y pulso Enter. Aparece automáticamente una cabecera con los datos del archivo y mi nombre, Manuel García.
-- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir?
+- **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir? postCreateCommand ejecuta automáticamente npm install al crear el entorno. Sirve para instalar las dependencias del proyecto. Después de reconstruir aparecieron la carpeta node_modules y el archivo package-lock.json, que guarda las versiones exactas de las dependencias.
 - **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una? Hay 3 tareas. La primera compila el programa Java, lo empaqueta en un archivo `.jar` y lo ejecuta. La segunda compila y ejecuta el programa TypeScript con Node.js. La tercera ejecuta las dos tareas anteriores en orden.
 
 ¿Qué parte de toda esta configuración es **personal** (solo para ti) y qué parte es **del proyecto** (la recibe cualquiera que abra el repositorio)?
@@ -138,7 +140,7 @@ TOTAL                        268.50 EUR
 |---|---|---|---|
 | El editor de Codespaces | GitHub | Automático | GitHub actualiza el editor, yo no puedo elegir cuándo |
 | Las extensiones | Yo | Ninguno (automático desactivado) | He puesto Auto Update en off para evitar cambios durante los exámenes |
-| Java | Yo | Manual | Actualmente tengo Java 27. En el paso 18 fijaré Java 21 LTS |
+| Java | Yo | Manual | He fijado Java 21 LTS en devcontainer.json para evitar que cambie de versión automáticamente al reconstruir.|
 | Node.js | La receta del entorno | Automático | Lo dejo con la versión LTS predeterminada, sin fijar una versión |
 | Dependencias npm (lodash, typescript...) | Yo | Manual | Las gestiono con package.json y package-lock.json y comprobaré sus vulnerabilidades |
   
@@ -153,6 +155,9 @@ OpenJDK 64-Bit Server VM Temurin-27+35 (build 27+35, mixed mode, sharing)
 
 DESPUÉS (paso 18):
 Pendiente de reconstruir el entorno con Java 21.
+openjdk version "21" 2023-09-19 LTS
+OpenJDK Runtime Environment Microsoft-8425986 (build 21+35-LTS)
+OpenJDK 64-Bit Server VM Microsoft-8425986 (build 21+35-LTS, mixed mode, sharing)
 ```
 
 Resultado de `npm outdated` (paso 17):
