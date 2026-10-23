@@ -1,4 +1,4 @@
-# Documentación de mi entorno de desarrollo · Práctica 2
+![alt text](image.png)# Documentación de mi entorno de desarrollo · Práctica 2
 
 **Nombre y apellidos:**
 **URL de mi repositorio:**
@@ -16,36 +16,48 @@
 Resultado de `java -version` y `node -v` **antes** de instalar nada:
 
 ```
-pega aquí
+bash: java: command not found
+bash: node: command not found
 ```
 
 ¿Por qué crees que aparece ese mensaje? (relaciónalo con la diapositiva «Problemas habituales del entorno»)
 
-> 
+> Aparece porque Java y Node.js todavía no están instalados en nuestro entorno de desarrollo, por lo que la terminal no reconoce sus comandos.
 
 ### 1.2. Después de la 1.ª reconstrucción (paso 5)
 
 Resultado de `java -version`, `node -v` y `jupyter lab --version` **después**:
 
 ```
-pega aquí
+openjdk version "27" 2026-09-15
+OpenJDK Runtime Environment Temurin-27+35 (build 27+35)
+OpenJDK 64-Bit Server VM Temurin-27+35 (build 27+35, mixed mode, sharing)
+
+v24.22.1
+
+4.6.4
 ```
 
 ¿Qué líneas nuevas han aparecido en `devcontainer.json`? Explica con tus palabras qué hace cada una:
 
-> 
+> Han aparecido las líneas `features`, `java:1`, `node:1` y `python:1`.
+
+- `features`: permite añadir herramientas al entorno.
+- `java:1`: instala Java para poder ejecutar programas Java.
+- `node:1`: instala Node.js para trabajar con JavaScript y TypeScript.
+- `python:1`: instala Python y, con `installJupyterlab: true`, también instala JupyterLab.
 
 ### 1.3. Comparativa de los dos IDE (paso 6)
 
-|                                         | Editor de GitHub Codespaces | JupyterLab |
-|-----------------------------------------|-----------------------------|------------|
-| ¿Libre o propietario?                   |                             |            |
-| Licencia / empresa o comunidad          |                             |            |
-| ¿Tiene coste? ¿Con qué límites?         |                             |            |
-| ¿Se puede usar fuera de GitHub?         |                             |            |
-| Lo que más me ha gustado                |                             |            |
-| Lo que menos me ha gustado              |                             |            |
-| ¿Para qué tipo de trabajo lo elegiría?  |                             |            |
+| | Editor de GitHub Codespaces | JupyterLab |
+|---|---|---|
+| ¿Libre o propietario? | Propietario | Libre y de código abierto |
+| Licencia / empresa o comunidad | GitHub, propiedad de Microsoft | Licencia BSD-3-Clause. Lo mantiene Project Jupyter y su comunidad |
+| ¿Tiene coste? ¿Con qué límites? | Gratis hasta 120 horas de núcleo y 15 GB-mes en GitHub Free. Con 2 núcleos son 60 horas de uso al mes | Gratuito, sin límite de uso propio |
+| ¿Se puede usar fuera de GitHub? | Se accede desde GitHub y se puede conectar con VS Code | Sí, se puede instalar en un ordenador |
+| Lo que más me ha gustado | Poder programar desde el navegador sin instalar nada | Poder abrir archivos y usar la terminal fácilmente |
+| Lo que menos me ha gustado | Tarda un poco en preparar el entorno | Me costó conectarme al servidor al principio |
+| ¿Para qué tipo de trabajo lo elegiría? | Para proyectos de programación en equipo | Para trabajar con Python y cuadernos de datos |
 
 ---
 
