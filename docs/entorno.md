@@ -133,41 +133,56 @@ TOTAL                        268.50 EUR
 
 ## 5. Sistema de actualizaciones (CE 2.d)
 
+
 | Elemento | ¿Quién lo actualiza? | Modo (automático / manual / ninguno) | Qué he configurado yo |
-|----------|----------------------|--------------------------------------|-----------------------|
-| El editor de Codespaces |   |   |   |
-| Las extensiones         |   |   |   |
-| Java                    |   |   |   |
-| Node.js                 |   |   |   |
-| Dependencias npm (lodash, typescript…) |   |   |   |
+|---|---|---|---|
+| El editor de Codespaces | GitHub | Automático | GitHub actualiza el editor, yo no puedo elegir cuándo |
+| Las extensiones | Yo | Ninguno (automático desactivado) | He puesto Auto Update en off para evitar cambios durante los exámenes |
+| Java | Yo | Manual | Actualmente tengo Java 27. En el paso 18 fijaré Java 21 LTS |
+| Node.js | La receta del entorno | Automático | Lo dejo con la versión LTS predeterminada, sin fijar una versión |
+| Dependencias npm (lodash, typescript...) | Yo | Manual | Las gestiono con package.json y package-lock.json y comprobaré sus vulnerabilidades |
+  
 
 Versión de Java **antes** (paso 5) y **después** (paso 18):
 
 ```
-pega aquí
+ANTES (paso 5):
+openjdk version "27" 2026-09-15
+OpenJDK Runtime Environment Temurin-27+35 (build 27+35)
+OpenJDK 64-Bit Server VM Temurin-27+35 (build 27+35, mixed mode, sharing)
+
+DESPUÉS (paso 18):
+Pendiente de reconstruir el entorno con Java 21.
 ```
 
 Resultado de `npm outdated` (paso 17):
 
 ```
-pega aquí
+Package          Current    Wanted     Latest
+@types/lodash     4.14.202  4.14.202   4.17.27
+@types/node       20.11.30  20.11.30   26.6.5
+lodash             4.17.20   4.17.20    4.18.1
+typescript          5.4.5     5.4.5    7.0.2
 ```
 
 Resultado de `npm audit` **antes** de actualizar lodash (solo el resumen final):
 
 ```
-pega aquí
+1 high severity vulnerability
+
+To address all issues, run:
+  npm audit fix --force
 ```
 
 Resultado de `npm audit` **después**:
 
 ```
-pega aquí
+found 0 vulnerabilities
 ```
 
 **Mi política de actualizaciones**: si este entorno lo usara un equipo de 5 personas durante todo el curso, ¿qué dejarías en automático y qué fijarías a mano? Justifícalo.
 
-> 
+> Dejaría que GitHub actualizara automáticamente el editor de Codespaces y mantendría Node.js en su versión LTS predeterminada. Las extensiones las actualizaría manualmente para evitar problemas durante las clases o los exámenes. También fijaría Java en la versión 21 LTS y revisaría las dependencias npm antes de actualizarlas, comprobando después que todo sigue funcionando. Así los cinco compañeros tendríamos un entorno más estable durante el curso.
 
 ---
 
@@ -175,10 +190,10 @@ pega aquí
 
 Anota cualquier problema que hayas tenido y cómo lo resolviste (también si usaste un fragmento completo).
 
-> 
+> Al principio Java y Node.js no estaban instalados, así que los añadí en devcontainer.json y reconstruí el entorno. También tuve problemas para acceder a JupyterLab y lo solucioné utilizando el token de acceso. Además, cambié el atajo de teclado porque la primera combinación no funcionaba. Para configurar el snippet utilicé el archivo proporcionado por el profesor.
 
 ## 7. Reflexión final
 
 ¿Qué ventaja tiene describir el entorno «como código» frente a instalar cada programa a mano en tu ordenador? Piensa en un equipo con Mac y Windows.
 
-> 
+> La ventaja es que todos los compañeros podemos utilizar el mismo entorno de desarrollo, aunque unos tengan Mac y otros Windows. Al estar la configuración guardada en archivos, no tenemos que instalar cada programa manualmente y evitamos problemas por tener distintas versiones. Además, si alguien nuevo entra al proyecto, puede preparar su entorno fácilmente con la misma configuración.
