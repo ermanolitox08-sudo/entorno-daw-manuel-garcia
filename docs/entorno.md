@@ -76,21 +76,23 @@ v24.22.1
 
 ## 3. Personalización y automatización (CE 2.c)
 
-- **Tema visual elegido** (paso 10) y por qué:
-- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene?
+- **Tema visual elegido** (paso 10) y por qué: El Oscuro predeterminado, porque ya me he acostumbrado.
+- **Ajuste del proyecto** (paso 10). ¿Qué archivo se ha creado y qué contiene? Se ha creado el archivo `.vscode/settings.json`, que guarda la configuración del proyecto para formatear los archivos automáticamente al guardarlos.
 
 ```
-pega aquí el contenido de .vscode/settings.json
+{
+  "editor.formatOnSave": true
+}
 ```
 
-- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve?
-- **Snippet** (paso 12). ¿Qué escribes y qué aparece?
+- **Atajo de teclado** (paso 11). ¿Qué acción, qué combinación y para qué te sirve? He configurado un atajo de teclado para reconstruir el contenedor de Codespaces, de manera que puedo hacerlo más rápido sin buscar la opción en los menús.
+- **Snippet** (paso 12). ¿Qué escribes y qué aparece? Escribo cabecera en Prueba.java y pulso Enter. Aparece automáticamente una cabecera con los datos del archivo y mi nombre, Manuel García.
 - **Automatización al crear el entorno** (paso 14). ¿Qué hace `postCreateCommand` y qué archivos/carpetas han aparecido después de reconstruir?
-- **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una?
+- **Tareas** (paso 13). ¿Cuántas tareas hay en `tasks.json` y qué hace cada una? Hay 3 tareas. La primera compila el programa Java, lo empaqueta en un archivo `.jar` y lo ejecuta. La segunda compila y ejecuta el programa TypeScript con Node.js. La tercera ejecuta las dos tareas anteriores en orden.
 
 ¿Qué parte de toda esta configuración es **personal** (solo para ti) y qué parte es **del proyecto** (la recibe cualquiera que abra el repositorio)?
 
-> 
+> La configuración personal es la que solo me afecta a mí, como el tema oscuro y el atajo de teclado. La configuración del proyecto se guarda en el repositorio y la puede utilizar todo el equipo, como settings.json, los snippets, las tareas y devcontainer.json.
 
 ---
 
@@ -99,13 +101,29 @@ pega aquí el contenido de .vscode/settings.json
 Salida completa de la tarea **Build completo** (paso 15):
 
 ```
-pega aquí
+=== FACTURA generada con Java 27 ===
+Dominio web anual             12.00 EUR
+Alojamiento web               59.90 EUR
+Logotipo corporativo         150.00 EUR
+-------------------------------------
+Base imponible               221.90 EUR
+IVA (21 %)                    46.60 EUR
+TOTAL                        268.50 EUR
+
+=== FACTURA generada con Node.js v24.22.1 ===
+Dominio web anual             12.00 EUR
+Alojamiento web               59.90 EUR
+Logotipo corporativo         150.00 EUR
+-------------------------------------
+Base imponible               221.90 EUR
+IVA (21 %)                    46.60 EUR
+TOTAL                        268.50 EUR
 ```
 
 | Lenguaje | Archivo fuente | Herramienta que lo traduce | Archivo generado | Cómo se ejecuta |
-|----------|----------------|----------------------------|------------------|-----------------|
-| Java       | `src/java/Factura.java` |   |   |   |
-| TypeScript | `src/ts/factura.ts`     |   |   |   |
+|---|---|---|---|---|
+| Java | `src/java/Factura.java` | `javac` | `build/factura.jar` | `java -jar build/factura.jar` |
+| TypeScript | `src/ts/factura.ts` | `tsc` | `dist/factura.js` | `node dist/factura.js` |
 
 **Opcional:** ¿has podido ejecutar los mismos archivos desde JupyterLab (paso 19)? ¿Por qué funciona en los dos IDE sin instalar nada más?
 
